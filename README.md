@@ -6,20 +6,17 @@ home application in a bi-directional way and simulates the registers and modbus 
 system.
 
 ## Docker
-Dockerfiles can be found for backend in directory <b>docker-backend</b>, for frontend at
-<b>src\main\kotlin\org\ocpp\battery\controller\frontend</b>.
-
-Docker compose file can be found in directory <b>docker-backend</b>.
+Dockerfile and Docker compose can be found for backend in directory <b>docker-backend</b>
 
 ### Run in Docker
-In order to run the database, backend and frontend via the compose file run the following commands
+In order to run the database and backend via the compose file run the following commands
 <ol>
     <li>Go to folder <b>docker-backend</b></li>
     <li>Run the file <b>publish.bat</b> in the terminal. This builds the required jar file for docker</li>
     <li>Run command <b>docker build -t org.ocpp.battery.controller:1.0.0 .</b></li>
     <li>Run command <b>docker-compose up</b></li>
-    <li>Wait until all services has been loaded. Frontend service takes usually the longest (1 or 2 minutes).</li>
-    <li>Open the browser and access the application via <b>http://localhost:4200</b></li>
+    <li>Wait until all services has been loaded</li>
+    <li>Application is reachable at port <b>8081</b></li>
 </ol>
 
 <b>Warning</b>: The database image exposes its port on 3306. Make sure you don't run any other database instance on your machine
@@ -46,28 +43,12 @@ or just change the port in the compose file (take care that the app uses then th
     <li>Make sure all dependencies has been loaded via Gradle</li>
 </ol>
 
-### Frontend Pre-Requisites
-<ol>
-    <li>Install NodeJs and NPM via <b>https://nodejs.org/en/download/</b></li>
-    <li>Install Angular CLI. Run the command <b>npm install -g @angular/cli</b> in your console</li>
-    <li>Go to <b>src\main\kotlin\org\ocpp\battery\controller\frontend</b></li>
-    <li>Open the terminal</li>
-    <li>Run command <b>npm i --save</b> to load all dependencies</li>
-</ol>
-
 ## Run Backend Application
 Open <b>Application.kt</b> file and run it either in run or debug mode. Make sure the database is running and the database
 has been created. The tables will be created by the Spring Application at startup.
 
-## Run Frontend Application
-<ol>
-    <li>Go to <b>src\main\kotlin\org\ocpp\battery\controller\frontend</b></li>
-    <li>Open the terminal</li>
-    <li>Run command <b>ng serve</b></li>
-</ol>
-
 ## Usage
-When backend and frontend is running, open <b>http://localhost:4200 </b> in your browser
+Application is reachable at port <b>8080</b>
 
 ## Tests
 Tests can be found in the test package. The ISC library framework generates all tests for the
