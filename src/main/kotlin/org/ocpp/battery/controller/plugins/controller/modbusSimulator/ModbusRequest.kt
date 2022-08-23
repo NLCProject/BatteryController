@@ -15,4 +15,3 @@ class ModbusRequest(
      */
     var value: String
 )
-

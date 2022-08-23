@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service
 @Service
 class RegisterService @Autowired constructor(
     private val repositoryService: RegisterRepository
-): IRegisterService, JsonSerialization() {
+) : IRegisterService, JsonSerialization() {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
 
@@ -64,6 +64,8 @@ class RegisterService @Autowired constructor(
         .registers
         .firstOrNull { it.command == command }
         ?.index
-        ?: throw Exception("No register found for command '$command' and manufacturer '$manufacturer' in" +
-            " manufacturer definition")
+        ?: throw Exception(
+            "No register found for command '$command' and manufacturer '$manufacturer' in" +
+                " manufacturer definition"
+        )
 }

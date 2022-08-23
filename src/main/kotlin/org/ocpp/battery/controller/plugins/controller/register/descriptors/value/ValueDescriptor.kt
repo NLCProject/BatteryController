@@ -12,4 +12,4 @@ class ValueDescriptor(
      *
      */
     var value: String
-): Descriptor(type = DescriptorType.Value)
+) : Descriptor(type = DescriptorType.Value)

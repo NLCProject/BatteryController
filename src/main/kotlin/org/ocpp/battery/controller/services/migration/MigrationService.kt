@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional
 @Transactional
 class MigrationService @Autowired constructor(
     private val registerRepository: IRegisterRepository
-): IMigrationService {
+) : IMigrationService {
 
     private val logger = LoggerFactory.getLogger(this::class.java)
 

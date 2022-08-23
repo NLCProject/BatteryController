@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
 @Service
-class SmartHomeConnector: ISmartHomeConnector {
+class SmartHomeConnector : ISmartHomeConnector {
 
     private var manufacturer: Manufacturer? = null
     private val logger = LoggerFactory.getLogger(this::class.java)

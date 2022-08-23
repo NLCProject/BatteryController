@@ -12,4 +12,4 @@ class BitDescriptor(
      *
      */
     var bits: List<Bit>
-): Descriptor(type = DescriptorType.Bits)
+) : Descriptor(type = DescriptorType.Bits)
