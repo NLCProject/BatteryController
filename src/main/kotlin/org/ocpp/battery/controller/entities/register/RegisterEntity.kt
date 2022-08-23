@@ -1,8 +1,8 @@
-package org.ocpp.battery.controller.plugins.entities
+package org.ocpp.battery.controller.entities.register
 
 import org.isc.utils.genericCrudl.models.IscEntity
 import org.isc.utils.utils.Ids
-import org.ocpp.battery.controller.plugins.controller.commands.ModbusCommand
+import org.ocpp.battery.controller.plugins.controller.modbusSimulator.ModbusCommand
 import org.ocpp.battery.controller.plugins.controller.enums.AccessType
 import org.ocpp.battery.controller.plugins.controller.enums.DataType
 import org.ocpp.battery.controller.plugins.controller.enums.I18nKey

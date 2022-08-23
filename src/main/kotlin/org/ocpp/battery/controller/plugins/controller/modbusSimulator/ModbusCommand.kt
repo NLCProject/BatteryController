@@ -1,4 +1,4 @@
-package org.ocpp.battery.controller.plugins.controller.commands
+package org.ocpp.battery.controller.plugins.controller.modbusSimulator
 
 import org.ocpp.battery.controller.plugins.controller.enums.AccessType
 import org.ocpp.battery.controller.plugins.controller.enums.I18nKey

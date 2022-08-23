@@ -1,21 +1,22 @@
 package org.ocpp.battery.controller.plugins.e3dc
 
-import org.ocpp.battery.controller.plugins.controller.commands.ModbusCommand
+import org.ocpp.battery.controller.plugins.controller.modbusSimulator.ModbusCommand
 import org.ocpp.battery.controller.plugins.controller.enums.AccessType
 import org.ocpp.battery.controller.plugins.controller.enums.DataType
 import org.ocpp.battery.controller.plugins.controller.enums.I18nKey
 import org.ocpp.battery.controller.plugins.controller.register.Register
 import org.ocpp.battery.controller.plugins.controller.register.descriptors.value.ValueDescriptor
+import org.ocpp.battery.controller.plugins.manufacturers.IManufacturerDefinition
 import org.ocpp.battery.controller.plugins.manufacturers.Manufacturer
 
 /**
  *
  */
-object E3DCRegister {
+object E3DCDefinition: IManufacturerDefinition {
 
-    val manufacturer = Manufacturer.E3DC
+    override var manufacturer = Manufacturer.E3DC
 
-    val registers = listOf(
+    override var registers = listOf(
         Register(
             index = 40002,
             i18nKey = I18nKey.RegisterModbusFirmwareVersion,
