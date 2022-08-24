@@ -1,8 +1,8 @@
 package org.ocpp.battery.controller.entities.register.interfaces
 
-import org.ocpp.battery.controller.plugins.controller.modbusSimulator.ModbusCommand
-import org.ocpp.battery.controller.plugins.controller.register.Register
-import org.ocpp.battery.controller.plugins.manufacturers.Manufacturer
+import org.battery.controller.util.controller.modbusSimulator.ModbusCommand
+import org.battery.controller.util.controller.register.Register
+import org.battery.controller.util.manufacturers.enums.Manufacturer
 
 /**
  *
@@ -17,5 +17,5 @@ interface IRegisterService {
     /**
      *
      */
-    fun saveRegisterByManufacturer(command: ModbusCommand, value: String, manufacturer: Manufacturer): Register
+    fun saveRegisterByManufacturer(value: String, command: ModbusCommand, manufacturer: Manufacturer): Register
 }

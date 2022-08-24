@@ -3,12 +3,12 @@ package org.ocpp.battery.controller.entities.register
 import org.isc.utils.serialization.JsonSerialization
 import org.isc.utils.tests.CurrentUserFactory
 import org.ocpp.battery.controller.entities.register.interfaces.IRegisterService
-import org.ocpp.battery.controller.plugins.controller.modbusSimulator.ModbusCommand
-import org.ocpp.battery.controller.plugins.controller.register.Register
-import org.ocpp.battery.controller.plugins.controller.register.descriptors.Descriptor
-import org.ocpp.battery.controller.plugins.controller.register.descriptors.value.ValueDescriptor
-import org.ocpp.battery.controller.plugins.manufacturers.Manufacturer
-import org.ocpp.battery.controller.plugins.manufacturers.ManufacturerMatcher
+import org.battery.controller.util.controller.modbusSimulator.ModbusCommand
+import org.battery.controller.util.controller.register.Register
+import org.battery.controller.util.controller.register.descriptors.Descriptor
+import org.battery.controller.util.controller.register.descriptors.value.ValueDescriptor
+import org.battery.controller.util.manufacturers.enums.Manufacturer
+import org.battery.controller.util.manufacturers.ManufacturerMatcher
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -28,8 +28,8 @@ class RegisterService @Autowired constructor(
     }
 
     override fun saveRegisterByManufacturer(
-        command: ModbusCommand,
         value: String,
+        command: ModbusCommand,
         manufacturer: Manufacturer
     ): Register {
         logger.info("Requesting register by command '$command' | manufacturer '$manufacturer' | value '$value'")
@@ -65,7 +65,7 @@ class RegisterService @Autowired constructor(
         .firstOrNull { it.command == command }
         ?.index
         ?: throw Exception(
-            "No register found for command '$command' and manufacturer '$manufacturer' in" +
-                " manufacturer definition"
+            "No register found for command '$command' and manufacturer '$manufacturer' in " +
+                "manufacturer definition"
         )
 }

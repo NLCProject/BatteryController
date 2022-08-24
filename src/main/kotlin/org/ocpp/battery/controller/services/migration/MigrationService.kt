@@ -2,11 +2,11 @@ package org.ocpp.battery.controller.services.migration
 
 import org.ocpp.battery.controller.entities.register.RegisterEntity
 import org.ocpp.battery.controller.entities.register.interfaces.IRegisterRepository
-import org.ocpp.battery.controller.plugins.controller.register.Register
-import org.ocpp.battery.controller.plugins.controller.register.descriptors.value.ValueDescriptor
-import org.ocpp.battery.controller.plugins.manufacturers.IManufacturerDefinition
-import org.ocpp.battery.controller.plugins.manufacturers.Manufacturer
-import org.ocpp.battery.controller.plugins.manufacturers.ManufacturerMatcher
+import org.battery.controller.util.controller.register.Register
+import org.battery.controller.util.controller.register.descriptors.value.ValueDescriptor
+import org.battery.controller.util.manufacturers.enums.Manufacturer
+import org.battery.controller.util.manufacturers.ManufacturerMatcher
+import org.battery.controller.util.manufacturers.interfaces.IManufacturerDefinition
 import org.ocpp.battery.controller.services.migration.interfaces.IMigrationService
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired

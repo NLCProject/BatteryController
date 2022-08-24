@@ -2,12 +2,12 @@ package org.ocpp.battery.controller.entities.register
 
 import org.isc.utils.genericCrudl.models.IscEntity
 import org.isc.utils.utils.Ids
-import org.ocpp.battery.controller.plugins.controller.enums.AccessType
-import org.ocpp.battery.controller.plugins.controller.enums.DataType
-import org.ocpp.battery.controller.plugins.controller.enums.I18nKey
-import org.ocpp.battery.controller.plugins.controller.modbusSimulator.ModbusCommand
-import org.ocpp.battery.controller.plugins.controller.register.descriptors.enums.DescriptorType
-import org.ocpp.battery.controller.plugins.manufacturers.Manufacturer
+import org.battery.controller.util.controller.enums.AccessType
+import org.battery.controller.util.controller.enums.DataType
+import org.battery.controller.util.controller.enums.I18nKey
+import org.battery.controller.util.controller.modbusSimulator.ModbusCommand
+import org.battery.controller.util.controller.register.descriptors.enums.DescriptorType
+import org.battery.controller.util.manufacturers.enums.Manufacturer
 import javax.persistence.*
 
 @Entity

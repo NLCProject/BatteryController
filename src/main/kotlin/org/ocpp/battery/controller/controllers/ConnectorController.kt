@@ -1,10 +1,10 @@
 package org.ocpp.battery.controller.controllers
 
+import org.battery.controller.util.controller.modbusSimulator.ModbusCommand
+import org.battery.controller.util.controller.register.Register
+import org.battery.controller.util.manufacturers.enums.Manufacturer
 import org.isc.utils.genericCrudl.controller.CrossOriginData
 import org.ocpp.battery.controller.entities.register.interfaces.IRegisterService
-import org.ocpp.battery.controller.plugins.controller.modbusSimulator.ModbusCommand
-import org.ocpp.battery.controller.plugins.controller.register.Register
-import org.ocpp.battery.controller.plugins.manufacturers.Manufacturer
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

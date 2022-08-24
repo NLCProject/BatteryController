@@ -2,7 +2,7 @@ package org.ocpp.battery.controller.entities.register.interfaces
 
 import org.isc.utils.genericCrudl.interfaces.ICrudlRepository
 import org.ocpp.battery.controller.entities.register.RegisterEntity
-import org.ocpp.battery.controller.plugins.manufacturers.Manufacturer
+import org.battery.controller.util.manufacturers.enums.Manufacturer
 import java.util.*
 
 /**
