@@ -15,7 +15,7 @@ class RegisterRepository @Autowired constructor(
      *
      */
     fun findByIndexAndManufacturer(index: Int, manufacturer: Manufacturer): RegisterEntity {
-        val optional = repository.findByIndexAndManufacturer(index = index, manufacturer = manufacturer)
+        val optional = repository.findByRegisterIndexAndManufacturer(registerIndex = index, manufacturer = manufacturer)
         if (!optional.isPresent)
             throw Exception("No register found for index '$index' and manufacturer '$manufacturer' in repository")
 

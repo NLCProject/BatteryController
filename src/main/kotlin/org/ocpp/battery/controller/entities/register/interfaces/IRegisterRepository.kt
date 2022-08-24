@@ -13,5 +13,5 @@ interface IRegisterRepository : ICrudlRepository<RegisterEntity> {
     /**
      *
      */
-    fun findByIndexAndManufacturer(index: Int, manufacturer: Manufacturer): Optional<RegisterEntity>
+    fun findByRegisterIndexAndManufacturer(registerIndex: Int, manufacturer: Manufacturer): Optional<RegisterEntity>
 }

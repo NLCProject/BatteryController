@@ -6,6 +6,7 @@ import org.ocpp.battery.controller.entities.register.interfaces.IRegisterService
 import org.battery.controller.util.controller.modbusSimulator.ModbusCommand
 import org.battery.controller.util.controller.register.Register
 import org.battery.controller.util.controller.register.descriptors.Descriptor
+import org.battery.controller.util.controller.register.descriptors.enums.DescriptorType
 import org.battery.controller.util.controller.register.descriptors.value.ValueDescriptor
 import org.battery.controller.util.manufacturers.enums.Manufacturer
 import org.battery.controller.util.manufacturers.ManufacturerMatcher
@@ -35,13 +36,14 @@ class RegisterService @Autowired constructor(
         logger.info("Requesting register by command '$command' | manufacturer '$manufacturer' | value '$value'")
         val index = getIndex(command = command, manufacturer = manufacturer)
         var register = repositoryService.findByIndexAndManufacturer(index = index, manufacturer = manufacturer)
+        register.descriptorType = DescriptorType.Value // TODO
         register.descriptor = updateAndGetDescriptor(descriptor = register.descriptor, value = value)
         register = repositoryService.save(entity = register, currentUser = CurrentUserFactory.getCurrentUser())
         return convertRegister(register = register)
     }
 
     private fun convertRegister(register: RegisterEntity): Register = Register(
-        index = register.index,
+        index = register.registerIndex,
         i18nKey = register.i18nKey,
         dataType = register.dataType,
         accessType = register.accessType,

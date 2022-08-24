@@ -31,7 +31,7 @@ class RegisterEntity : IscEntity() {
      *
      */
     @Column
-    var index: Int = 0
+    var registerIndex: Int = 0
 
     /**
      *

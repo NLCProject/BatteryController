@@ -43,7 +43,7 @@ class MigrationService @Autowired constructor(
     private fun importRegister(register: Register, manufacturer: Manufacturer) {
         logger.info("Importing register with index '${register.index}'")
         val entity = RegisterEntity()
-        entity.index = register.index
+        entity.registerIndex = register.index
         entity.i18nKey = register.i18nKey
         entity.dataType = register.dataType
         entity.accessType = register.accessType
