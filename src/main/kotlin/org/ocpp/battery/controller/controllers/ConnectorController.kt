@@ -26,7 +26,7 @@ class ConnectorController @Autowired constructor(
     /**
      *
      */
-    @GetMapping("/get")
+    @GetMapping(value = ["/get"])
     fun get(@RequestParam command: ModbusCommand, @RequestParam manufacturer: Manufacturer): ResponseEntity<Register> {
         val register = registerService.findRegisterByManufacturer(command = command, manufacturer = manufacturer)
         return ResponseEntity(register, HttpStatus.OK)
@@ -35,7 +35,7 @@ class ConnectorController @Autowired constructor(
     /**
      *
      */
-    @GetMapping("/post")
+    @GetMapping(value = ["/post"])
     fun post(
         @RequestParam command: ModbusCommand,
         @RequestParam value: String,

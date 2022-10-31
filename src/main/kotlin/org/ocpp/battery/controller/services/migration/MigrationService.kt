@@ -3,7 +3,6 @@ package org.ocpp.battery.controller.services.migration
 import org.ocpp.battery.controller.entities.register.RegisterEntity
 import org.ocpp.battery.controller.entities.register.interfaces.IRegisterRepository
 import org.battery.controller.util.controller.register.Register
-import org.battery.controller.util.controller.register.descriptors.value.ValueDescriptor
 import org.battery.controller.util.manufacturers.enums.Manufacturer
 import org.battery.controller.util.manufacturers.ManufacturerMatcher
 import org.battery.controller.util.manufacturers.interfaces.IManufacturerDefinition
@@ -47,8 +46,7 @@ class MigrationService @Autowired constructor(
         entity.i18nKey = register.i18nKey
         entity.dataType = register.dataType
         entity.accessType = register.accessType
-        // TODO Currently only value descriptor is supported -> this means descriptor == value
-        entity.descriptor = (register.descriptor as ValueDescriptor).value
+        entity.descriptor = register.descriptor.value
         entity.command = register.command
         entity.manufacturer = manufacturer
         registerRepository.save(entity)

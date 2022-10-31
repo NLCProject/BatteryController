@@ -4,10 +4,9 @@ import org.isc.utils.serialization.JsonSerialization
 import org.isc.utils.tests.CurrentUserFactory
 import org.ocpp.battery.controller.entities.register.interfaces.IRegisterService
 import org.battery.controller.util.controller.modbusSimulator.ModbusCommand
+import org.battery.controller.util.controller.register.DescriptorBuilder
 import org.battery.controller.util.controller.register.Register
-import org.battery.controller.util.controller.register.descriptors.Descriptor
 import org.battery.controller.util.controller.register.descriptors.enums.DescriptorType
-import org.battery.controller.util.controller.register.descriptors.value.ValueDescriptor
 import org.battery.controller.util.manufacturers.enums.Manufacturer
 import org.battery.controller.util.manufacturers.ManufacturerMatcher
 import org.slf4j.LoggerFactory
@@ -36,8 +35,8 @@ class RegisterService @Autowired constructor(
         logger.info("Requesting register by command '$command' | manufacturer '$manufacturer' | value '$value'")
         val index = getIndex(command = command, manufacturer = manufacturer)
         var register = repositoryService.findByIndexAndManufacturer(index = index, manufacturer = manufacturer)
-        register.descriptorType = DescriptorType.Value // TODO
-        register.descriptor = updateAndGetDescriptor(descriptor = register.descriptor, value = value)
+        register.descriptorType = DescriptorType.Value
+        register.descriptor = value
         register = repositoryService.save(entity = register, currentUser = CurrentUserFactory.getCurrentUser())
         return convertRegister(register = register)
     }
@@ -47,19 +46,9 @@ class RegisterService @Autowired constructor(
         i18nKey = register.i18nKey,
         dataType = register.dataType,
         accessType = register.accessType,
-        descriptor = convertDescriptor(descriptor = register.descriptor),
+        descriptor = DescriptorBuilder.buildValue(value = register.descriptor),
         command = register.command
     )
-
-    private fun convertDescriptor(descriptor: String): Descriptor {
-        // TODO Currently only value descriptor is supported -> this means descriptor == value
-        return ValueDescriptor(value = descriptor)
-    }
-
-    private fun updateAndGetDescriptor(descriptor: String, value: String): String {
-        // TODO Currently only value descriptor is supported -> this means descriptor == value
-        return value
-    }
 
     private fun getIndex(command: ModbusCommand, manufacturer: Manufacturer): Int = ManufacturerMatcher
         .getManufacturerDefinition(manufacturer = manufacturer)
