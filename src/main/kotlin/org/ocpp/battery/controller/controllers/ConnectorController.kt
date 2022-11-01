@@ -24,7 +24,11 @@ class ConnectorController @Autowired constructor(
 ) {
 
     /**
+     * Get all registers by command and manufacturer.
      *
+     * @param command .
+     * @param manufacturer .
+     * @return Register.
      */
     @GetMapping(value = ["/get"])
     fun get(@RequestParam command: ModbusCommand, @RequestParam manufacturer: Manufacturer): ResponseEntity<Register> {
@@ -33,6 +37,12 @@ class ConnectorController @Autowired constructor(
     }
 
     /**
+     * Updates register by given command and value.
+     *
+     * @param value New value
+     * @param command .
+     * @param manufacturer .
+     * @return Updated register.
      *
      */
     @GetMapping(value = ["/post"])

@@ -10,6 +10,9 @@ import org.battery.controller.util.controller.register.descriptors.enums.Descrip
 import org.battery.controller.util.manufacturers.enums.Manufacturer
 import javax.persistence.*
 
+/**
+ * Register entity.
+ */
 @Entity
 @Table(name = "register")
 class RegisterEntity : IscEntity() {
@@ -28,50 +31,50 @@ class RegisterEntity : IscEntity() {
     override var timestampLastModified: Long = 0
 
     /**
-     *
+     * Register Index.
      */
     @Column
     var registerIndex: Int = 0
 
     /**
-     *
+     * I18n key.
      */
     @Enumerated(value = EnumType.STRING)
     lateinit var i18nKey: I18nKey
 
     /**
-     *
+     * Register data type.
      */
     @Enumerated(value = EnumType.STRING)
     lateinit var dataType: DataType
 
     /**
-     *
+     * Register access type.
      */
     @Enumerated(value = EnumType.STRING)
     lateinit var accessType: AccessType
 
     /**
-     *
+     * Value descriptor type.
      */
     @Enumerated(value = EnumType.STRING)
     lateinit var descriptorType: DescriptorType
 
     /**
-     *
+     * Command to access this register.
      */
     @Enumerated(value = EnumType.STRING)
     lateinit var command: ModbusCommand
 
     /**
-     *
+     * Value descriptor.
      */
     @Lob
     @Column(columnDefinition = "MEDIUMBLOB")
     lateinit var descriptor: String
 
     /**
-     *
+     * Manufacturer.
      */
     @Enumerated(value = EnumType.STRING)
     lateinit var manufacturer: Manufacturer
